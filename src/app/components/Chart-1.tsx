@@ -25,19 +25,7 @@ export default function Chart1() {
 
 
 
-  useEffect(() => {
 
-    if (!readedInfo.includes(currentId) && currentId != '7' && currentId != '') {
-      readedInfo.push(currentId);
-    }
-
-    if (readedInfo.length >= 6) {
-      setCurrentId('usina', false);
-      readedInfo.length = 0;
-    }
-
-
-  }, [currentId]);
 
   function handleTextInfo(id: number) {
 

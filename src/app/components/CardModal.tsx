@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import { info } from '../utils/info';
+import { read } from 'fs';
 
 
 
@@ -19,12 +20,14 @@ import { info } from '../utils/info';
 
 export function CardModal() {
 
-  const { isOpen, title, content, image1, currentId, openModal, closeModal, setCurrentId } = useMapStore();
+  const { isOpen, readedInfo, title, content, image1, currentId, openModal, closeModal, setCurrentId, setReadedInfo } = useMapStore();
   if (!isOpen) return null;
 
 
   const handleSlide = () => {
-    console.log(currentId);
+
+
+
     if (currentId === "1") {
 
       let id = parseInt(currentId) + 1;

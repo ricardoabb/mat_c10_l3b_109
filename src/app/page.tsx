@@ -33,26 +33,27 @@ export default function Info() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
 
-    const { currentId = 0, isActiveId, setCurrentId, setIsActiveId, openModal, setCurrentSlide } = useMapStore();
+    const { currentId, isOpen, isActiveId, readedInfo, setCurrentId, setIsActiveId, openModal, setCurrentSlide, setReadedInfo } = useMapStore();
 
     const handleSlideChange = (swiper: any) => {
         setActiveIndex(swiper.activeIndex);
-
+       
 
         // setCurrentId(swiper.activeIndex, false);
     };
 
-    //🔄 Atualiza o slide ao mudar currentId
+
+
     useEffect(() => {
         if (sliderRef.current && sliderRef.current.swiper) {
             const swiper = sliderRef.current.swiper;
             setActiveIndex(swiper.activeIndex);
             setCurrentSlide(swiper.activeIndex);
-
+            setReadedInfo([])
             if (swiper.activeIndex === 0) {
-
+                setCurrentId("1", false);
                 info.map((item, index) => {
-                    if (item.id === 2) {
+                    if (item.id === 1) {
                         openModal({
                             title: item.title,
                             content: item.content,
@@ -92,7 +93,6 @@ export default function Info() {
 
 
 
-    const isLast = info.length - 1;
 
     return (
         <Home>
@@ -125,6 +125,9 @@ export default function Info() {
                     <SwiperSlide >
                         <Chart2 />
                     </SwiperSlide>
+                    <SwiperSlide >
+                        <Chart2 />
+                    </SwiperSlide>
 
                 </Swiper>
             </div>
@@ -147,8 +150,8 @@ export default function Info() {
                 </button>
 
                 <button
-                    className={`${sliderRef.current?.swiper.activeIndex === isLast ? "opacity-[.5]" : "opacity-100"} flex justify-center items-center z-50`}
-                    disabled={sliderRef.current?.swiper.activeIndex === isLast}
+                    className={`${sliderRef.current?.swiper.activeIndex === 2 ? "opacity-[.5]" : "opacity-100"} flex justify-center items-center z-50`}
+                    disabled={sliderRef.current?.swiper.activeIndex === 2}
                     onClick={() => {
                         setIndex(sliderRef.current?.swiper.realIndex);
                         setIsEnd(sliderRef.current?.swiper.isEnd);

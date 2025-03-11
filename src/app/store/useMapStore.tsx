@@ -10,6 +10,7 @@ interface MapStore {
     setIsActiveId: (isActiveId: boolean) => void
 
     readedInfo: Array<string>;
+    setReadedInfo: (array: Array<string>) => void;
     isOpen: boolean;
     title: string;
     content: string;  
@@ -40,6 +41,7 @@ export const useMapStore = create<MapStore>((set) => ({
     },
     closeModal: () => set({ isOpen: false }),
     setCurrentId: (id: string, isActiveId: boolean) => set({ currentId: id, isActiveId: isActiveId }),
+    setReadedInfo: (array: Array<string>) => set({ readedInfo: array }),
     setCurrentSlide: (id: number) => set({ currentSlide: id }),
     setIsActiveId: (isActiveId: boolean) => set({ isActiveId: isActiveId }),
 

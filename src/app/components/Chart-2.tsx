@@ -9,14 +9,15 @@ export default function Chart2() {
 
   const [menuCurrent, setMenuCurrent] = useState(false);
 
-  const [readedInfo, setReadedInfo] = useState<string[]>([]);
+
 
   const [activeTitle, setactiveTitle] = useState<string>("");
   const [activeContent, setactiveContent] = useState<string>("");
   const [isactiveSpot, setIsactiveSpot] = useState<boolean>(false);
+  
 
 
-  const { currentId, isActiveId, setCurrentId, setIsActiveId, openModal } = useMapStore();
+  const { isOpen,currentId, readedInfo, isActiveId, setCurrentId, setReadedInfo, setIsActiveId, openModal } = useMapStore();
 
 
 
@@ -26,21 +27,32 @@ export default function Chart2() {
 
 
   useEffect(() => {
-
-    if (!readedInfo.includes(currentId) && currentId != '7' && currentId != '') {
-      readedInfo.push(currentId);
+    
+ 
+    
+    if (!readedInfo.includes(activeTitle) && activeTitle != '7' && activeTitle != '') {
+      readedInfo.push(activeTitle);
     }
+    console.log('aqui: ', readedInfo.length);
 
-    if (readedInfo.length >= 6) {
-      setCurrentId('usina', false);
-      readedInfo.length = 0;
+    if (readedInfo.length >= 4) {
+
+      console.log("readed: ", readedInfo);
+      setTimeout(() => {
+        handleModal("12");        
+        setReadedInfo([]);
+      }, 2000);
+
+      console.log('lenght: ', readedInfo.length);
+
     }
-
 
   }, [currentId]);
 
   function handleTextInfo(id: number) {
-
+    setCurrentId(id.toString(), false);
+    console.log(currentId);
+    
     setIsactiveSpot(false);
 
     setTimeout(() => {

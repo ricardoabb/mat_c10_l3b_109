@@ -81,6 +81,13 @@ export const info = [
         image: "",
         imageSubtitle: "",
     },
+    {
+        id: 12,
+        title: 'Pergunta:',
+        content:'VOCÊ CONSEGUE DIZER QUANDO O DESEMPREGO ESTEVE MAIOR?\n\nA QUE VOCÊ ASSOCIA ESSE COMPORTAMENTO DOS DADOS?',
+        image: "",
+        imageSubtitle: "",
+    },
    
 
 ]

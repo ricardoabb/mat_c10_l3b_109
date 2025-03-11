@@ -63,10 +63,11 @@ export function TextBox({ content = "", title, image, imagesubtitle, hide = fals
 
   return (
     <div id="container" className=" flex flex-col w-full sm:w-[650px] lg:w-[750px] px-4 pb-12 md:mx-auto">
-
-      <div id="title" className="text-center rounded-[100px] bg-[#fff] px-4 py-2">
-        <h1 className="text-[#776CA9] text-[1.5rem] md:text-[2.5rem] font-bold ">{title}</h1>
-      </div>
+      {title && (
+        <div id="title" className="text-center rounded-[100px] bg-[#fff] px-4 py-2">
+          <h1 className="text-[#776CA9] text-[1.5rem] md:text-[2.5rem] font-bold ">{title}</h1>
+        </div>
+      )}
       {
         image && (
           <div className="swiper-image w-[100%] md:w-[50%] xl:w-[60%] mx-auto my-4 mb-0 p-4 bg-[#fff] rounded-[24px] overflow-hidden">
@@ -98,7 +99,7 @@ export function TextBox({ content = "", title, image, imagesubtitle, hide = fals
       {
         content && (
           <div id="box-container" className={`px-5 py-7 bg-gradient-to-r from-sand-300 to-sand-100 rounded-2xl mt-5 bg-[#fff]`}>
-            <div className={`h-32 md:h-24 text-base text-[#BB7843] font-medium`}>
+            <div className={`h-40 md:h-24 text-base text-[#BB7843] font-medium`}>
               <AnimatedText text={content} limit={172} />
             </div>
           </div>
