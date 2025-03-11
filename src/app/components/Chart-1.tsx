@@ -12,7 +12,7 @@ export default function Chart1() {
 
   const [readedInfo, setReadedInfo] = useState<string[]>([]);
 
-  const [activeSpot, setActiveSpot] = useState<string>("");
+  const [activeSpot, setActiveSpot] = useState<string>("CABEÇALHO");
   const [isactiveSpot, setIsActiveSpot] = useState<boolean>(false);
 
 

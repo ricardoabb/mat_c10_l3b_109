@@ -11,7 +11,7 @@ export default function Chart2() {
 
 
 
-  const [activeTitle, setactiveTitle] = useState<string>("");
+  const [activeTitle, setactiveTitle] = useState<string>("TÍTULO");
   const [activeContent, setactiveContent] = useState<string>("");
   const [isactiveSpot, setIsactiveSpot] = useState<boolean>(false);
   
