@@ -3,8 +3,10 @@ import { create } from 'zustand';
 
 interface MapStore {
     currentId: string,
+    currentSlide: number,
     isActiveId: boolean,    
     setCurrentId: (id: string, isActiveId: boolean) => void
+    setCurrentSlide: (id: number, ) => void
     setIsActiveId: (isActiveId: boolean) => void
 
     readedInfo: Array<string>;
@@ -26,6 +28,7 @@ interface MapStore {
 
 export const useMapStore = create<MapStore>((set) => ({
     currentId: '1',
+    currentSlide: 0,
     isActiveId: false,
     title: 'Introdução',
     content: 'Podemos avaliar se o desemprego no Brasil está melhorando ou piorando se coletarmos dados.',
@@ -37,6 +40,7 @@ export const useMapStore = create<MapStore>((set) => ({
     },
     closeModal: () => set({ isOpen: false }),
     setCurrentId: (id: string, isActiveId: boolean) => set({ currentId: id, isActiveId: isActiveId }),
+    setCurrentSlide: (id: number) => set({ currentSlide: id }),
     setIsActiveId: (isActiveId: boolean) => set({ isActiveId: isActiveId }),
 
 }));

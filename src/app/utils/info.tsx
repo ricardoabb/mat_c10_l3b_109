@@ -8,6 +8,7 @@ export const info = [
         image: "",
         imageSubtitle: "",
     },
+
     {
         id: 2,
         title: 'TABELA',
@@ -19,6 +20,64 @@ export const info = [
         id: 3,
         title: 'COLUNA',
         content:'',
+        image: "",
+        imageSubtitle: "",
+    },
+    {
+        id: 4,
+        title: 'LINHA',
+        content:'',
+        image: "",
+        imageSubtitle: "",
+    },
+    {
+        id: 5,
+        title: 'CABEÇALHO',
+        content:'',
+        image: "",
+        imageSubtitle: "",
+    },
+
+    {
+        id: 6,
+        title: 'Gráficos',
+        content:'Gráficos são uma forma visual de representar dados, tornando a interpretação mais intuitiva e facilitando a identificação de padrões, tendências e relações entre as informações.\nNote como cada linha da tabela é transformada em uma coluna do gráfico, facilitando a visualização e o entendimento dos dados de maneira mais visual.',
+        image: "",
+        imageSubtitle: "",
+    },
+    {
+        id: 7,
+        title: 'EIXO VERTICAL (Y) (ORDENADAS)',
+        content:'Indica os valores numéricos correspondentes a cada categoria.',
+        image: "",
+        imageSubtitle: "",
+    },
+    {
+        id: 8,
+        title: 'TÍTULO',
+        content:'',
+        image: "",
+        imageSubtitle: "",
+    },
+
+    {
+        id: 9,
+        title: 'COLUNAS',
+        content:'Representam visualmente os dados, com alturas proporcionais aos valores numéricos correspondentes.',
+        image: "",
+        imageSubtitle: "",
+    },
+    {
+        id: 10,
+        title: 'RÓTULOS DOS EIXOS',
+        content:'Descrevem o que está sendo representado nos eixos x e y para melhor compreensão.',
+        image: "",
+        imageSubtitle: "",
+    },
+    {
+        id: 11,
+        title: 'EIXO HORIZONTAL (X)(ABSCISSAS)',
+        content:'Normalmente representa as categorias ou grupos analisados.',
         image: "",
         imageSubtitle: "",
     },
