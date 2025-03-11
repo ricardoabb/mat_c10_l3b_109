@@ -5,6 +5,7 @@ import iconBalance from '../assets/icon-more.svg';
 
 import React, { useState, useEffect } from 'react';
 import { AnimatedText } from "./AnimatedText";
+import { useMapStore } from "../store/useMapStore";
 
 
 type textInfoProp = {
@@ -12,6 +13,7 @@ type textInfoProp = {
   content: string;
   image?: string;
   imagesubtitle?: string;
+  link?: string;
   hide?: boolean;
 };
 
@@ -19,10 +21,10 @@ type textInfoProp = {
 
 
 
-export function TextBox({ content = "", title, image, imagesubtitle, hide = false }: textInfoProp) {
+export function TextBox({ content = "", title, image, imagesubtitle, link, hide = false }: textInfoProp) {
   const [loading, setLoading] = useState(true);
 
-
+ const { setIsImgActive } = useMapStore();
 
   function TextWithHighlights({ text }: { text: string | undefined }): JSX.Element {
     // Verificar se 'text' é undefined
@@ -65,12 +67,12 @@ export function TextBox({ content = "", title, image, imagesubtitle, hide = fals
     <div id="container" className=" flex flex-col w-full sm:w-[650px] lg:w-[750px] px-4 pb-12 md:mx-auto">
       {title && (
         <div id="title" className="text-center rounded-[100px] bg-[#fff] px-4 py-2">
-          <h1 className="text-[#776CA9] text-[1.5rem] md:text-[2.5rem] font-bold ">{title}</h1>
+          <h1 className="text-[#776CA9] text-[1.5rem] md:text-[2rem] font-bold ">{title}</h1>
         </div>
       )}
       {
         image && (
-          <div className="swiper-image w-[100%] md:w-[50%] xl:w-[60%] mx-auto my-4 mb-0 p-4 bg-[#fff] rounded-[24px] overflow-hidden">
+          <div className="swiper-image w-[100%] md:w-[50%] xl:w-[60%] mx-auto my-4 mb-0 p-4 bg-[#fff] rounded-[24px] overflow-hidden cursor-pointer" onClick={() => setIsImgActive(true)}>
 
             <Image
               src={image!}
@@ -85,13 +87,7 @@ export function TextBox({ content = "", title, image, imagesubtitle, hide = fals
               onLoad={handleImageLoad}
               className={`transition-opacity duration-500 ease-in-out `}
             />
-            {
-              imagesubtitle && (
-                <div className="bg-[#F9D8A7]  my-2 mx-auto text-left p-2 px-3 md:px-5 rounded-[8px]">
-                  {TextWithHighlights({ text: imagesubtitle })}
-                </div>
-              )
-            }
+
           </div>
         )
       }
@@ -102,6 +98,9 @@ export function TextBox({ content = "", title, image, imagesubtitle, hide = fals
             <div className={`h-40 md:h-24 text-base text-[#BB7843] font-medium`}>
               <AnimatedText text={content} limit={172} />
             </div>
+              {link && (
+                <a className="text-[#776CA9] font-bold hover:text-[#E5985E] transition-colors ease-in-out duration-300" href={link} target="_blank" rel="noreferrer">Saiba Mais +</a>
+              )}
           </div>
         )
       }

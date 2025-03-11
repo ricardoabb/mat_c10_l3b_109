@@ -9,6 +9,8 @@ import 'swiper/css/navigation';
 import { info } from '../utils/info';
 import Chart1 from './Chart-1';
 import Chart2 from './Chart-2';
+import Chart3 from './Chart-3';
+import Chart4 from './Chart-4';
 
 
 
@@ -42,10 +44,14 @@ export function Slide2() {
 
 
   return (
-    <section className="grid grid-cols-12 gap-4 px-4">
+    <section className="flex flex-col overflow-hidden h-screen 
+     justify-center p-4 pt-4 md:p-56 md:pt-8 xl:p-80 lg:pt-8 2xl:p-96 gap-6  ">
 
-      <div className="col-span-12 lg:col-span-6">
-        <Chart2 />
+      <div className="flexjustify-center items-center ">
+        <Chart3 />
+      </div>
+      <div className="flex justify-center items-center ">
+        <Chart4 />
       </div>
     </section>
   );

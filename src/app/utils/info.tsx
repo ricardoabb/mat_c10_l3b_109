@@ -88,6 +88,30 @@ export const info = [
         image: "",
         imageSubtitle: "",
     },
+    {
+        id: 13,
+        title: 'Número de empresasno Brasil',
+        content:'Por vezes, para explicar o comportamento de um conjunto de dados, nós precisamos buscar outras informações.\nVocê consegue identificar com facilidade quais foram os anos com menores e maiores números de empresas registradas?\nVocê consegue encontrar alguma correlação desses dados com o número de pessoas desempregadas no Brasil?',
+        link:"https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/37193-cempre-2021-numero-de-empresas-cresce-5-8-e-pessoal-assalariado-aumenta-4-9",
+        image: "",
+        imageSubtitle: "https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/37193-cempre-2021-numero-de-empresas-cresce-5-8-e-pessoal-assalariado-aumenta-4-9",
+    },
+    {
+        id: 14,
+        title: 'Representação gráfica da tabela',
+        content:'Para facilitar, vamos transpor a tabela para uma representação gráfica.\nNote que agora temos um gráfico de linhas em vez de colunas.\nA principal diferença: os dados quantitativos são representados por pontos conectados por uma linha, em vez de colunas. ',
+        link:"",
+        image: "",
+        imageSubtitle: "",
+    },
+    {
+        id: 15,
+        title: 'Conclusão',
+        content:'Agora, analise os dois gráficos e registre a quais principais conclusões podemos chegar.',
+        link:"",
+        image: "/charts-img.png",
+        imageSubtitle: "",
+    },
    
 
 ]

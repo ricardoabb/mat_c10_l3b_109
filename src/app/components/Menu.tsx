@@ -40,9 +40,44 @@ export default function Menu() {
             title: item.title,
             content: item.content,
             image1: item.image,
+            link: item.link,
             tapeColor: 'tapeColor',
             bgColor: 'bgColor',
 
+          })
+        }
+      })
+    }
+     else if (currentSlide === 2) {
+      info.map((item, index) => {
+        if (item.id === 13) {
+          console.log("LINK: ", item.link);
+          
+          openModal({
+            title: item.title,
+            content: item.content,
+            image1: item.image,
+            link: item.link,
+            tapeColor: 'tapeColor',
+            bgColor: 'bgColor',
+            
+          })
+        }
+      })
+    }
+     else if (currentSlide === 3) {
+      info.map((item, index) => {
+        if (item.id === 15) {
+          console.log("LINK: ", item.link);
+          
+          openModal({
+            title: item.title,
+            content: item.content,
+            image1: item.image,
+            link: item.link,
+            tapeColor: 'tapeColor',
+            bgColor: 'bgColor',
+            
           })
         }
       })

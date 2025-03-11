@@ -18,9 +18,11 @@ import 'swiper/css/scrollbar';
 
 import { info } from './utils/info';
 import Chart1 from './components/Chart-1';
-import { Slide2 } from './components/Slide2';
+import { Slide2 } from './components/Slide3';
 import Chart2 from './components/Chart-2';
 import { log } from 'console';
+import Chart3 from './components/Chart-3';
+import Chart4 from './components/Chart-4';
 
 export default function Info() {
 
@@ -33,7 +35,7 @@ export default function Info() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
 
-    const { currentId, isOpen, isActiveId, readedInfo, setCurrentId, setIsActiveId, openModal, setCurrentSlide, setReadedInfo } = useMapStore();
+    const { currentId, isOpen, link, isActiveId, readedInfo, setCurrentId, setIsActiveId, openModal, setCurrentSlide, setReadedInfo } = useMapStore();
 
     const handleSlideChange = (swiper: any) => {
         setActiveIndex(swiper.activeIndex);
@@ -71,6 +73,36 @@ export default function Info() {
                             title: item.title,
                             content: item.content,
                             image1: item.image,
+                            tapeColor: 'tapeColor',
+                            bgColor: 'bgColor',
+
+                        })
+                    }
+                })
+            }
+             else if (swiper.activeIndex === 2) {
+                info.map((item, index) => {
+                    if (item.id === 13) {
+                        openModal({
+                            title: item.title,
+                            content: item.content,
+                            image1: item.image,
+                            link: item.link,
+                            tapeColor: 'tapeColor',
+                            bgColor: 'bgColor',
+
+                        })
+                    }
+                })
+            }
+             else if (swiper.activeIndex === 3) {
+                info.map((item, index) => {
+                    if (item.id === 14) {
+                        openModal({
+                            title: item.title,
+                            content: item.content,
+                            image1: item.image,
+                            link: item.link,
                             tapeColor: 'tapeColor',
                             bgColor: 'bgColor',
 
@@ -126,7 +158,10 @@ export default function Info() {
                         <Chart2 />
                     </SwiperSlide>
                     <SwiperSlide >
-                        <Chart2 />
+                        <Chart3 />
+                    </SwiperSlide>
+                    <SwiperSlide >
+                        <Chart4 />
                     </SwiperSlide>
 
                 </Swiper>
@@ -150,8 +185,8 @@ export default function Info() {
                 </button>
 
                 <button
-                    className={`${sliderRef.current?.swiper.activeIndex === 2 ? "opacity-[.5]" : "opacity-100"} flex justify-center items-center z-50`}
-                    disabled={sliderRef.current?.swiper.activeIndex === 2}
+                    className={`${sliderRef.current?.swiper.activeIndex === 3 ? "opacity-[.5]" : "opacity-100"} flex justify-center items-center z-50`}
+                    disabled={sliderRef.current?.swiper.activeIndex === 3}
                     onClick={() => {
                         setIndex(sliderRef.current?.swiper.realIndex);
                         setIsEnd(sliderRef.current?.swiper.isEnd);
