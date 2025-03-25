@@ -26,28 +26,28 @@ export default function Chart3() {
 
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
 
 
-    if (!readedInfo.includes(activeTitle) && activeTitle != '7' && activeTitle != '') {
-      readedInfo.push(activeTitle);
-    }
-    console.log('aqui: ', readedInfo.length);
+  //   if (!readedInfo.includes(activeTitle) && activeTitle != '7' && activeTitle != '') {
+  //     readedInfo.push(activeTitle);
+  //   }
+    
 
-    if (readedInfo.length >= 4) {
+  //   if (readedInfo.length >= 4) {
 
-      console.log("readed: ", readedInfo);
-      setTimeout(() => {
-        handleModal("12");
-        setReadedInfo([]);
-      }, 2000);
+  //     console.log("readed: ", readedInfo);
+  //     setTimeout(() => {
+  //       handleModal("12");
+  //       setReadedInfo([]);
+  //     }, 2000);
 
-      console.log('lenght: ', readedInfo.length);
+  //     console.log('lenght: ', readedInfo.length);
 
-    }
+  //   }
 
-  }, [currentId]);
+  // }, [currentId]);
 
   function handleTextInfo(id: number) {
     setCurrentId(id.toString(), false);

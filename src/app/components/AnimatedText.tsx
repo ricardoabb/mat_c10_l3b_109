@@ -84,7 +84,7 @@ export function AnimatedText({ text, limit = 140, delay = 5 }: TextBoxProps) {
 
   function TextWithHighlights({ text }: { text: string }): JSX.Element {
     const phrasesToHighlight: string[] = [
-      'Estudar', 'Reino de Jerusalém', 'o Condado de Trípoli', 'o Principado de Antioquia', 'Condado de Edessa.', 'proto', 
+      'colunas', 'cabeçalho', 'linhas', 'gráficos', 'eixos', 'x', 'y', 'rótulos', 'gráfico',  
     ];
     const phrasesToItalic: string[] = [
       'Papa Urbano II discursando no Concílio de Clermont'

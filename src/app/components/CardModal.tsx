@@ -22,13 +22,12 @@ import { div } from 'motion/react-client';
 
 export function CardModal() {
 
-  const { isOpen, readedInfo, title, content, image1, currentId, link, isImgActive, openModal, closeModal, setCurrentId, setReadedInfo, setIsImgActive } = useMapStore();
+  const { isOpen, readedInfo, title, content, image1, currentId, link, isImgActive, isChangedSlide, openModal, closeModal, setCurrentId, setReadedInfo, setIsImgActive, setSlideChange  } = useMapStore();
   if (!isOpen) return null;
 
 
+
   const handleSlide = () => {
-
-
 
     if (currentId === "1") {
 
@@ -40,14 +39,29 @@ export function CardModal() {
       }, 100);
 
     } else {
+      let id = parseInt(currentId) + 1;
+      setCurrentId(id.toString(), true);
       closeModal();
     }
+
+
+    setReadedInfo((prev) => {
+      if (!prev.includes(currentId)) {
+        const updatedArray = [...prev, currentId];
+        console.log('Atualizado readedInfo: ', updatedArray);
+        return updatedArray;
+      }
+      return prev;
+    });
+
+
+
 
   }
 
   function handleModal(id: string) {
 
-    setCurrentId(id, true);
+    setCurrentId(id, true);    
 
     info.map((item, index) => {
       if (item.id === parseInt(id)) {
@@ -64,7 +78,13 @@ export function CardModal() {
 
 
     })
+
+
+
+   
   }
+
+
 
 
 
@@ -87,7 +107,7 @@ export function CardModal() {
             exit={{ scale: 0.8 }}
           >
             <div className="relative w-full md:w-auto -mt-8 md:-mt-52">
-              <button onClick={handleSlide} className="absolute top-[-50px] md:top-[24px] right-8 md:right-10 z-50">
+              <button onClick={handleSlide} className={`${isImgActive ? 'hidden' : ''} absolute top-[-50px] md:top-[24px] right-8 md:right-10 z-50`}> 
                 <svg width="23" height="25" className='fill-[#F9D8A7] md:fill-[#776CA9]' viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M32.0156 34.2656H23.7188L15.75 21.3047L7.78125 34.2656H0L11.3672 16.5938L0.726562 0H8.74219L16.125 12.3281L23.3672 0H31.1953L20.4375 16.9922L32.0156 34.2656Z" />
                 </svg>
@@ -98,8 +118,8 @@ export function CardModal() {
 
                 {isImgActive ? (
                   <div className='z-[999]'>
-                    <button onClick={() =>setIsImgActive(false)} className="absolute top-[-50px] md:top-[24px] right-8 md:right-10 z-50">
-                      <svg width="23" height="25" className='fill-[#F9D8A7] md:fill-[#776CA9]' viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <button onClick={() => setIsImgActive(false)} className="absolute top-[-50px] md:top-[-44px] right-8 md:right-10 z-50 cursor-pointer">
+                      <svg width="23" height="25" className='fill-[#F9D8A7]' viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32.0156 34.2656H23.7188L15.75 21.3047L7.78125 34.2656H0L11.3672 16.5938L0.726562 0H8.74219L16.125 12.3281L23.3672 0H31.1953L20.4375 16.9922L32.0156 34.2656Z" />
                       </svg>
                     </button>

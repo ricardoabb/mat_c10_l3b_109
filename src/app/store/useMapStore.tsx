@@ -5,14 +5,20 @@ interface MapStore {
     currentId: string,
     currentSlide: number,
     isActiveId: boolean,    
+    showQuestion: boolean,    
+    isChangedSlide: boolean,    
     isImgActive: boolean,    
     setCurrentId: (id: string, isActiveId: boolean) => void
+
     setCurrentSlide: (id: number, ) => void
+
+    setShowQuestion: (isActiveId: boolean) => void
     setIsActiveId: (isActiveId: boolean) => void
+    setSlideChange: (isActiveId: boolean) => void
     setIsImgActive: (setIsImgActive: boolean) => void
 
     readedInfo: Array<string>;
-    setReadedInfo: (array: Array<string>) => void;
+    setReadedInfo: (updater: string[] | ((prev: string[]) => string[])) => void;
     isOpen: boolean;
     title: string;
     content: string;  
@@ -35,6 +41,8 @@ export const useMapStore = create<MapStore>((set) => ({
     currentId: '1',
     currentSlide: 0,
     isActiveId: false,
+    showQuestion: false,
+    isChangedSlide: false,
     isImgActive: false,
     title: 'Introdução',
     content: 'Podemos avaliar se o desemprego no Brasil está melhorando ou piorando se coletarmos dados.',
@@ -47,9 +55,17 @@ export const useMapStore = create<MapStore>((set) => ({
     },
     closeModal: () => set({ isOpen: false }),
     setCurrentId: (id: string, isActiveId: boolean) => set({ currentId: id, isActiveId: isActiveId }),
-    setReadedInfo: (array: Array<string>) => set({ readedInfo: array }),
+
+    setReadedInfo: (updater) => {
+        set((state) => ({
+          readedInfo: typeof updater === "function" ? (updater as (prev: string[]) => string[])(state.readedInfo) : updater,
+        }));
+      },
+
     setCurrentSlide: (id: number) => set({ currentSlide: id }),
     setIsActiveId: (isActiveId: boolean) => set({ isActiveId: isActiveId }),
+    setShowQuestion: (showQuestion: boolean) => set({ showQuestion: showQuestion }),
+    setSlideChange: (isChangedSlide: boolean) => set({ isChangedSlide: isChangedSlide }),
     setIsImgActive: (isImgActive: boolean) => set({ isImgActive: isImgActive }),
 
 }));

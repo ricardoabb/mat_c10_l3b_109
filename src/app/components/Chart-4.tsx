@@ -26,28 +26,28 @@ export default function Chart4() {
 
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
 
 
-    if (!readedInfo.includes(activeTitle) && activeTitle != '7' && activeTitle != '') {
-      readedInfo.push(activeTitle);
-    }
-    console.log('aqui: ', readedInfo.length);
+  //   if (!readedInfo.includes(activeTitle) && activeTitle != '7' && activeTitle != '') {
+  //     readedInfo.push(activeTitle);
+  //   }
 
-    if (readedInfo.length >= 4) {
 
-      console.log("readed: ", readedInfo);
-      setTimeout(() => {
-        handleModal("12");
-        setReadedInfo([]);
-      }, 2000);
+  //   if (readedInfo.length >= 4) {
 
-      console.log('lenght: ', readedInfo.length);
+  //     console.log("readed: ", readedInfo);
+  //     setTimeout(() => {
+  //       handleModal("12");
+  //       setReadedInfo([]);
+  //     }, 2000);
 
-    }
+  //     console.log('lenght: ', readedInfo.length);
 
-  }, [currentId]);
+  //   }
+
+  // }, [currentId]);
 
   function handleTextInfo(id: number) {
     setCurrentId(id.toString(), false);
