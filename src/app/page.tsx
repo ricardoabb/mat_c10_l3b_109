@@ -23,6 +23,7 @@ import Chart2 from './components/Chart-2';
 import { log } from 'console';
 import Chart3 from './components/Chart-3';
 import Chart4 from './components/Chart-4';
+import Chart5 from './components/Chart-5';
 
 export default function Info() {
 
@@ -82,6 +83,8 @@ export default function Info() {
                 })
             }
              else if (swiper.activeIndex === 2) {
+                setShowQuestion(true);
+                setCurrentId("13", false);
                 info.map((item, index) => {
                     if (item.id === 13) {
                         openModal({
@@ -97,8 +100,9 @@ export default function Info() {
                 })
             }
              else if (swiper.activeIndex === 3) {
+                setCurrentId("15", false);
                 info.map((item, index) => {
-                    if (item.id === 14) {
+                    if (item.id === 16) {
                         openModal({
                             title: item.title,
                             content: item.content,
@@ -111,6 +115,7 @@ export default function Info() {
                     }
                 })
             }
+            
         }
     }, [activeIndex]);
 
@@ -123,6 +128,9 @@ export default function Info() {
             setShowQuestion(true)// setIsActiveId(true);            
           }
         if (['7', '8', '9', '10', '11', '12'].every(id => readedInfo.includes(id))  ) {
+            setSlideChange(true)// setIsActiveId(true);            
+          }
+        if (['14', '15'].every(id => readedInfo.includes(id))  ) {
             setSlideChange(true)// setIsActiveId(true);            
           }
     },[currentId])
@@ -178,11 +186,14 @@ export default function Info() {
                     <SwiperSlide >
                         <Chart2 />
                     </SwiperSlide>
-                    <SwiperSlide >
+                    {/* <SwiperSlide >
                         <Chart3 />
-                    </SwiperSlide>
+                    </SwiperSlide> */}
                     <SwiperSlide >
                         <Chart4 />
+                    </SwiperSlide>
+                    <SwiperSlide >
+                        <Chart5 />
                     </SwiperSlide>
 
                 </Swiper>

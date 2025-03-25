@@ -26,6 +26,10 @@ const config: Config = {
           "0%, 100%": { fill: "#EC644E" },
           "50%": { fill: "#fff" },
         },
+        "color-pulse-bg": {
+          "0%, 100%": { backgroundColor: "#EC644E" },
+          "50%": { backgroundColor: "#6B2055" },
+        },
         slideIn: {
           "0%": { transform: "scaleX(0)", transformOrigin: "right" },
           "100%": { transform: "scaleX(1)", transformOrigin: "left" },
@@ -34,13 +38,19 @@ const config: Config = {
           "0%, 100%": { transform: "scale(1)", opacity: "1" },
           "50%": { transform: "scale(1.06)", opacity: "1" },
         },
+        bounceCustom: {
+          '0%, 100%': { transform: 'translateY(0%)' },
+          '50%': { transform: 'translateY(10%)',  },
+        },
       },
       animation: {
         "color-pulse-white": "color-pulse-white 1s infinite",
         "color-pulse": "color-pulse 1s infinite",
+        "color-pulse-bg": "color-pulse-bg 2s infinite",
         "fade-in-out": "fade-in-out 1s infinite",
         slideIn: "slideIn 1s ease-in-out forwards",
         pulse: "pulse 2s infinite",
+        'bounce-slow': 'bounceCustom 1s ease-in-out  infinite',
       },
     },
   },
