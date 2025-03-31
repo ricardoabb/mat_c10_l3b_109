@@ -15,7 +15,7 @@ export default function Menu() {
   const isUsinaActive = pathname === "/usina";
 
 
-  const { currentId, isActiveId, readedInfo, showQuestion, currentSlide, setCurrentId, setIsActiveId, openModal } = useMapStore();
+  const { currentId,isOpen, isActiveId, readedInfo, showQuestion, currentSlide, setCurrentId, setIsActiveId, openModal } = useMapStore();
 
 
 
@@ -106,7 +106,7 @@ export default function Menu() {
 
 
   return (
-    <nav className="absolute bottom-0   rounded-t-xl flex gap-5 z-[999]">
+    <nav className={`${isOpen ? 'hidden' : ''} absolute bottom-0   rounded-t-xl flex gap-5 z-[999]`}>
       {/* Ícone com cor alterada quando a rota for '/info' */}
       <div className="cursor-pointer w-fit  bg-[#349C8F] p-5 py-5 rounded-t-xl" onClick={() => handleModal()}>
 
